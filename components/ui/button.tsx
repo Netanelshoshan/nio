@@ -1,0 +1,79 @@
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Slot } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "group/button relative inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-[transform,background-color,border-color,color,box-shadow,opacity] duration-(--duration-ui-press) ease-(--ease-ui-out) outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-transparent bg-primary bg-clip-border text-primary-foreground shadow-(--shadow-button) hover:bg-primary/90 hover:shadow-(--shadow-button-hover) active:not-aria-[haspopup]:shadow-(--shadow-button-active)",
+        outline:
+          "border-transparent bg-background shadow-(--shadow-button) hover:bg-muted hover:text-foreground hover:shadow-(--shadow-button-hover) aria-expanded:bg-muted aria-expanded:text-foreground dark:bg-transparent dark:hover:bg-input/30",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-(--shadow-button) hover:bg-secondary/80 hover:shadow-(--shadow-button-hover) aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        ghost:
+          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        destructive:
+          "bg-destructive/10 text-destructive shadow-(--shadow-button) hover:bg-destructive/20 hover:shadow-(--shadow-button-hover) focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+        link: "text-primary underline-offset-4 hover:underline",
+        export:
+          "border-transparent bg-success bg-clip-border text-success-foreground shadow-(--shadow-button) hover:bg-success/90 hover:shadow-(--shadow-button-hover) focus-visible:border-transparent focus-visible:ring-success/30 active:not-aria-[haspopup]:shadow-(--shadow-button-active)",
+      },
+      size: {
+        default:
+          "h-9 gap-1.5 px-3 has-data-[icon=inline-end]:pe-2.5 has-data-[icon=inline-start]:ps-2.5",
+        xs: "h-6 gap-1 px-2.5 text-xs has-data-[icon=inline-end]:pe-2 has-data-[icon=inline-start]:ps-2 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-8 gap-1 px-3 has-data-[icon=inline-end]:pe-2 has-data-[icon=inline-start]:ps-2",
+        lg: "h-10 gap-1.5 px-4 has-data-[icon=inline-end]:pe-3 has-data-[icon=inline-start]:ps-3",
+        icon: "size-9 after:absolute after:top-1/2 after:left-1/2 after:size-10 after:-translate-x-1/2 after:-translate-y-1/2",
+        "icon-xs":
+          "size-6 after:absolute after:top-1/2 after:left-1/2 after:size-10 after:-translate-x-1/2 after:-translate-y-1/2 [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-8 after:absolute after:top-1/2 after:left-1/2 after:size-10 after:-translate-x-1/2 after:-translate-y-1/2",
+        "icon-lg": "size-10",
+      },
+      static: {
+        true: "",
+        false:
+          "active:not-aria-[haspopup]:scale-[0.96] motion-reduce:transition-[background-color,border-color,color,box-shadow,opacity] motion-reduce:active:not-aria-[haspopup]:scale-100",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+      static: false,
+    },
+  }
+)
+
+function Button({
+  className,
+  variant = "default",
+  size = "default",
+  static: isStatic = false,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+    static?: boolean
+  }) {
+  const Comp = asChild ? Slot.Root : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      data-static={isStatic || undefined}
+      className={cn(buttonVariants({ variant, size, static: isStatic, className }))}
+      {...props}
+    />
+  )
+}
+
+export { Button, buttonVariants }
