@@ -48,24 +48,24 @@ export default async function RootLayout({
   children,
   params,
 }: LayoutProps<"/[lang]">) {
-  const { lang } = await params
+  const { lang: locale } = await params
 
-  if (!hasLocale(lang)) {
+  if (!hasLocale(locale)) {
     notFound()
   }
 
   const dictionary = await getDictionary()
-  const dir = getDirection(lang)
+  const dir = getDirection(locale)
 
   return (
     <html
-      lang={lang}
+      lang={locale}
       dir={dir}
       className={cn("font-sans", rubik.variable)}
       suppressHydrationWarning
     >
       <body className="antialiased">
-        <DictionaryProvider dictionary={dictionary} locale={lang}>
+        <DictionaryProvider dictionary={dictionary} locale={locale}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { useDictionary } from "@/components/dictionary-provider"
 
 function getPath(source: unknown, path: string): unknown {
@@ -15,8 +16,11 @@ export function useTranslations(namespace: string) {
   const dictionary = useDictionary()
   const scoped = getPath(dictionary, namespace)
 
-  return (key: string) => {
-    const value = getPath(scoped, key)
-    return typeof value === "string" ? value : key
-  }
+  return React.useCallback(
+    (key: string) => {
+      const value = getPath(scoped, key)
+      return typeof value === "string" ? value : key
+    },
+    [scoped]
+  )
 }

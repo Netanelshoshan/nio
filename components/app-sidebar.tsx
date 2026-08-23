@@ -41,10 +41,13 @@ export function AppSidebar() {
     href: string
     label: string
     icon: typeof LayoutDashboard
-  }> = [
-    { href: "/", label: t("home"), icon: LayoutDashboard },
-    { href: "/components", label: t("components"), icon: Blocks },
-  ]
+  }> = useMemo(
+    () => [
+      { href: "/", label: t("home"), icon: LayoutDashboard },
+      { href: "/components", label: t("components"), icon: Blocks },
+    ],
+    [t]
+  )
 
   const selectedHref = useMemo(
     () => resolveSelectedHref(pathname ?? "/", navItems),
