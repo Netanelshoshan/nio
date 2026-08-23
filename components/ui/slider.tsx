@@ -35,6 +35,7 @@ function Slider({
         className
       )}
       {...props}
+      dir="ltr"
     >
       <SliderPrimitive.Track
         data-slot="slider-track"

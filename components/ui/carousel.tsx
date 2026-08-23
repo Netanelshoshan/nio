@@ -4,15 +4,17 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
+import { useDirection } from "@/components/ui/direction"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]
 type CarouselPlugin = UseCarouselParameters[1]
+type TextDirection = "ltr" | "rtl"
 
 type CarouselProps = {
   opts?: CarouselOptions
@@ -42,6 +44,20 @@ function useCarousel() {
   return context
 }
 
+function resolveTextDirection(
+  optsDirection: TextDirection | undefined,
+  dir: React.ComponentProps<"div">["dir"],
+  contextDirection: TextDirection
+): TextDirection {
+  if (optsDirection === "ltr" || optsDirection === "rtl") {
+    return optsDirection
+  }
+  if (dir === "ltr" || dir === "rtl") {
+    return dir
+  }
+  return contextDirection
+}
+
 function Carousel({
   orientation = "horizontal",
   opts,
@@ -49,12 +65,16 @@ function Carousel({
   plugins,
   className,
   children,
+  dir,
   ...props
 }: React.ComponentProps<"div"> & CarouselProps) {
+  const contextDirection = useDirection()
+  const direction = resolveTextDirection(opts?.direction, dir, contextDirection)
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
       axis: orientation === "horizontal" ? "x" : "y",
+      direction,
     },
     plugins
   )
@@ -79,13 +99,23 @@ function Carousel({
     (event: React.KeyboardEvent<HTMLDivElement>) => {
       if (event.key === "ArrowLeft") {
         event.preventDefault()
-        scrollPrev()
-      } else if (event.key === "ArrowRight") {
+        if (direction === "rtl") {
+          scrollNext()
+        } else {
+          scrollPrev()
+        }
+        return
+      }
+      if (event.key === "ArrowRight") {
         event.preventDefault()
-        scrollNext()
+        if (direction === "rtl") {
+          scrollPrev()
+        } else {
+          scrollNext()
+        }
       }
     },
-    [scrollPrev, scrollNext]
+    [direction, scrollNext, scrollPrev]
   )
 
   React.useEffect(() => {
@@ -120,11 +150,16 @@ function Carousel({
     >
       <div
         onKeyDownCapture={handleKeyDown}
-        className={cn("relative", className)}
+        className={cn(
+          "relative",
+          orientation === "horizontal" ? "px-10" : "py-10",
+          className
+        )}
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
         {...props}
+        dir={direction}
       >
         {children}
       </div>
@@ -187,8 +222,8 @@ function CarouselPrevious({
       className={cn(
         "absolute touch-manipulation rounded-full",
         orientation === "horizontal"
-          ? "inset-y-0 -start-12 my-auto"
-          : "-top-12 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 rotate-90",
+          ? "inset-y-0 start-0 my-auto"
+          : "top-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollPrev}
@@ -217,8 +252,8 @@ function CarouselNext({
       className={cn(
         "absolute touch-manipulation rounded-full",
         orientation === "horizontal"
-          ? "inset-y-0 -end-12 my-auto"
-          : "-bottom-12 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 rotate-90",
+          ? "inset-y-0 end-0 my-auto"
+          : "bottom-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollNext}

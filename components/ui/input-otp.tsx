@@ -14,16 +14,19 @@ function InputOTP({
   containerClassName?: string
 }) {
   return (
-    <OTPInput
-      data-slot="input-otp"
-      containerClassName={cn(
-        "cn-input-otp flex items-center has-disabled:opacity-50",
-        containerClassName
-      )}
-      spellCheck={false}
-      className={cn("disabled:cursor-not-allowed", className)}
-      {...props}
-    />
+    <div dir="ltr">
+      <OTPInput
+        data-slot="input-otp"
+        containerClassName={cn(
+          "cn-input-otp flex items-center has-disabled:opacity-50",
+          containerClassName
+        )}
+        spellCheck={false}
+        className={cn("disabled:cursor-not-allowed", className)}
+        {...props}
+        dir="ltr"
+      />
+    </div>
   )
 }
 

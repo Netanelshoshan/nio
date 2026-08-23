@@ -28,6 +28,14 @@
     "he": "עברית",
     "en": "English"
   },
+  "Pagination": {
+    "label": "דפדוף",
+    "previous": "הקודם",
+    "next": "הבא",
+    "previousAria": "לעמוד הקודם",
+    "nextAria": "לעמוד הבא",
+    "morePages": "עמודים נוספים"
+  },
   "Home": {
     "title": "בית",
     "badge": "תבנית",

@@ -804,7 +804,7 @@ function DataDisplaySection() {
           </CollapsibleContent>
         </Collapsible>
 
-        <Carousel className="w-full max-w-xs">
+        <Carousel className="mx-auto w-full max-w-sm">
           <CarouselContent>
             {[1, 2, 3, 4].map((index) => (
               <CarouselItem key={index}>

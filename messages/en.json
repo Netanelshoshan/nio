@@ -28,6 +28,14 @@
     "he": "עברית",
     "en": "English"
   },
+  "Pagination": {
+    "label": "Pagination",
+    "previous": "Previous",
+    "next": "Next",
+    "previousAria": "Go to previous page",
+    "nextAria": "Go to next page",
+    "morePages": "More pages"
+  },
   "Home": {
     "title": "Home",
     "badge": "Template",
