@@ -1,8 +1,9 @@
 "use client"
 
 import { Languages } from "lucide-react"
-import { useLocale, useTranslations } from "next-intl"
+import { usePathname, useRouter } from "next/navigation"
 import { useTransition } from "react"
+import { useLocale } from "@/components/dictionary-provider"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -12,8 +13,13 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { usePathname, useRouter } from "@/i18n/navigation"
-import { locales, type Locale } from "@/i18n/routing"
+import { useTranslations } from "@/hooks/use-translations"
+import {
+  hasLocale,
+  localizeHref,
+  locales,
+  stripLocalePrefix,
+} from "@/lib/i18n/config"
 
 export function LocaleSwitcher() {
   const t = useTranslations("Locale")
@@ -23,8 +29,13 @@ export function LocaleSwitcher() {
   const [isPending, startTransition] = useTransition()
 
   function onChange(nextLocale: string) {
+    if (!hasLocale(nextLocale)) {
+      return
+    }
+
+    const href = localizeHref(nextLocale, stripLocalePrefix(pathname, locale))
     startTransition(() => {
-      router.replace(pathname, { locale: nextLocale as Locale })
+      router.replace(href)
     })
   }
 

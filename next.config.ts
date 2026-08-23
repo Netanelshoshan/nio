@@ -1,12 +1,9 @@
 import type { NextConfig } from "next"
 import path from "path"
 import { fileURLToPath } from "url"
-import createNextIntlPlugin from "next-intl/plugin"
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const isDev = process.env.NODE_ENV !== "production"
-
-const withNextIntl = createNextIntlPlugin()
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -54,7 +51,6 @@ const nextConfig: NextConfig = {
         source: "/:path*.map",
         destination: "/404",
         permanent: false,
-        locale: false,
       },
     ]
   },
@@ -63,4 +59,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withNextIntl(nextConfig)
+export default nextConfig

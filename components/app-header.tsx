@@ -1,6 +1,6 @@
 "use client"
 
-import { useTranslations } from "next-intl"
+import { usePathname } from "next/navigation"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,13 +9,16 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
+import { useLocale } from "@/components/dictionary-provider"
 import { LocaleSwitcher } from "@/components/locale-switcher"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { usePathname } from "@/i18n/navigation"
+import { useTranslations } from "@/hooks/use-translations"
+import { stripLocalePrefix } from "@/lib/i18n/config"
 
 export function AppHeader() {
   const t = useTranslations("Nav")
-  const pathname = usePathname()
+  const locale = useLocale()
+  const pathname = stripLocalePrefix(usePathname(), locale)
 
   const routeLabels: Record<string, string> = {
     "/": t("home"),

@@ -6,23 +6,25 @@ A clean Next.js App Router starter with shadcn/ui, Tailwind CSS v4, dark mode, a
 
 - Next.js App Router
 - shadcn/ui (Radix + Base UI primitives) + Tailwind CSS v4
-- `next-intl` for locale routing — Hebrew (default, RTL) and English (LTR), `dir`/`lang` switch automatically per locale
+- Native Next.js i18n: `app/[lang]` routing, `Accept-Language` negotiation in `proxy.ts`, dictionaries for translations
 - Light/dark theme via `next-themes`
 
 ## App shell
 
-- Collapsible sidebar + header, wired up in `app/[locale]/layout.tsx`
-- Routes: `/` (home), `/components` (full shadcn/ui component gallery) — both under the `[locale]` segment (`/en`, `/en/components`, and unprefixed for the default `he` locale)
-- Add new pages under `app/[locale]/` and a matching entry to `navItems` in `components/app-sidebar.tsx`
+- Collapsible sidebar + header, wired up in `app/[lang]/layout.tsx`
+- Routes: `/he` and `/en` (home), `/he/components` and `/en/components` (component gallery)
+- Visiting `/` or `/components` redirects to the best matching locale from the `Accept-Language` header (Hebrew by default)
+- Add new pages under `app/[lang]/` and a matching entry to `navItems` in `components/app-sidebar.tsx`
 - Sidebar physically mirrors side based on locale direction (`components/app-sidebar.tsx`)
 
 ## Internationalization
 
-- Translation strings live in `messages/en.json` and `messages/he.json`
-- Routing config: `i18n/routing.ts` (locales, default locale, prefix strategy), `i18n/navigation.ts` (locale-aware `Link`/`router`/`usePathname`), `i18n/request.ts` (message loading)
-- `proxy.ts` (Next.js 16's renamed `middleware.ts`) handles locale detection/redirects
-- `components/locale-switcher.tsx` lets users switch locale from the header, preserving the current route
-- To add a locale: add it to `routing.ts`'s `locales` array, add a `messages/<locale>.json` file, and add it to `rtlLocales` if it's RTL
+- Translation strings live in `dictionaries/en.json` and `dictionaries/he.json`
+- `app/[lang]/dictionaries.ts` loads the active dictionary via `next/root-params`
+- `lib/i18n/config.ts` holds supported locales, the default locale (`he`), and RTL direction
+- `proxy.ts` negotiates locale with `@formatjs/intl-localematcher` + `negotiator`, then redirects unprefixed paths
+- `components/locale-switcher.tsx` switches language by changing the `/[lang]` prefix, preserving the current route
+- To add a locale: add it to `locales` in `lib/i18n/config.ts`, add `dictionaries/<locale>.json`, import it from `dictionaries.ts`, and add it to `rtlLocales` if it's RTL
 
 ## Component gallery
 

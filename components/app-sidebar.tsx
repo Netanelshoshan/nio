@@ -1,9 +1,11 @@
 "use client"
 
-import { useLocale, useTranslations } from "next-intl"
 import { useMemo } from "react"
+import { usePathname } from "next/navigation"
 import { Blocks, LayoutDashboard } from "lucide-react"
 import { BrandMark } from "@/components/brand-mark"
+import { Link } from "@/components/locale-link"
+import { useLocale } from "@/components/dictionary-provider"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   Sidebar,
@@ -17,8 +19,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Link, usePathname } from "@/i18n/navigation"
-import { getDirection, type Locale } from "@/i18n/routing"
+import { useTranslations } from "@/hooks/use-translations"
+import { getDirection, stripLocalePrefix } from "@/lib/i18n/config"
 
 function resolveSelectedHref(pathname: string, items: { href: string }[]): string | null {
   const active = items.find((item) => {
@@ -31,8 +33,8 @@ function resolveSelectedHref(pathname: string, items: { href: string }[]): strin
 export function AppSidebar() {
   const t = useTranslations("Nav")
   const tUser = useTranslations("User")
-  const pathname = usePathname()
-  const locale = useLocale() as Locale
+  const locale = useLocale()
+  const pathname = stripLocalePrefix(usePathname(), locale)
   const side = getDirection(locale) === "rtl" ? "right" : "left"
 
   const navItems: Array<{

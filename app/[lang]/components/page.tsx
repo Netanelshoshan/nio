@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useTranslations } from "next-intl"
+import { useTranslations } from "@/hooks/use-translations"
 import { toast } from "sonner"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import {

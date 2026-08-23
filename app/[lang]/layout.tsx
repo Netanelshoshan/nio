@@ -1,18 +1,18 @@
 import type { Metadata } from "next"
-import { hasLocale } from "next-intl"
-import { NextIntlClientProvider } from "next-intl"
-import { getTranslations, setRequestLocale } from "next-intl/server"
+import { lang } from "next/root-params"
 import { notFound } from "next/navigation"
 import { Rubik } from "next/font/google"
 import { AppHeader } from "@/components/app-header"
 import { AppSidebar } from "@/components/app-sidebar"
+import { DictionaryProvider } from "@/components/dictionary-provider"
 import { ThemeProvider } from "@/components/theme-provider"
 import { DirectionProvider } from "@/components/ui/direction"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { getDictionary } from "@/app/[lang]/dictionaries"
+import { getDirection, hasLocale, locales } from "@/lib/i18n/config"
 import { cn } from "@/lib/utils"
-import { getDirection, routing, type Locale } from "@/i18n/routing"
 import "./globals.css"
 
 const rubik = Rubik({
@@ -22,25 +22,24 @@ const rubik = Rubik({
   display: "swap",
 })
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }))
+export async function generateStaticParams() {
+  return locales.map((lang) => ({ lang }))
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
-  const { locale } = await params
-  const t = await getTranslations({ locale, namespace: "Metadata" })
+export async function generateMetadata(): Promise<Metadata> {
+  const dictionary = await getDictionary()
+  const locale = await lang()
 
   return {
-    title: { default: t("title"), template: t("titleTemplate") },
-    description: t("description"),
+    title: {
+      default: dictionary.Metadata.title,
+      template: dictionary.Metadata.titleTemplate,
+    },
+    description: dictionary.Metadata.description,
     openGraph: {
       type: "website",
       locale: locale === "he" ? "he_IL" : "en_US",
-      siteName: t("siteName"),
+      siteName: dictionary.Metadata.siteName,
     },
   }
 }
@@ -48,28 +47,25 @@ export async function generateMetadata({
 export default async function RootLayout({
   children,
   params,
-}: Readonly<{
-  children: React.ReactNode
-  params: Promise<{ locale: string }>
-}>) {
-  const { locale } = await params
+}: LayoutProps<"/[lang]">) {
+  const { lang } = await params
 
-  if (!hasLocale(routing.locales, locale)) {
+  if (!hasLocale(lang)) {
     notFound()
   }
 
-  setRequestLocale(locale)
-  const dir = getDirection(locale as Locale)
+  const dictionary = await getDictionary()
+  const dir = getDirection(lang)
 
   return (
     <html
-      lang={locale}
+      lang={lang}
       dir={dir}
       className={cn("font-sans", rubik.variable)}
       suppressHydrationWarning
     >
       <body className="antialiased">
-        <NextIntlClientProvider>
+        <DictionaryProvider dictionary={dictionary} locale={lang}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -91,7 +87,7 @@ export default async function RootLayout({
               </TooltipProvider>
             </DirectionProvider>
           </ThemeProvider>
-        </NextIntlClientProvider>
+        </DictionaryProvider>
       </body>
     </html>
   )

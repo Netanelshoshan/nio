@@ -1,4 +1,6 @@
-import { useTranslations } from "next-intl"
+"use client"
+
+import { useTranslations } from "@/hooks/use-translations"
 import { cn } from "@/lib/utils"
 
 type BrandMarkProps = {
