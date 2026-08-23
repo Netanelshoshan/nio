@@ -80,7 +80,7 @@ export default async function RootLayout({
               <TooltipProvider>
                 <SidebarProvider className="h-svh bg-sidebar">
                   <AppSidebar />
-                  <SidebarInset className="m-2 ms-0 flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-border/60 bg-background shadow-(--shadow-card)">
+                  <SidebarInset className="m-2 flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-border/60 bg-background shadow-(--shadow-card)">
                     <AppHeader />
                     <main className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto overscroll-y-contain bg-background p-4 pb-8 md:p-6 md:pb-6">
                       {children}

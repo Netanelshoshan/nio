@@ -50,8 +50,13 @@ export function AppSidebar() {
   )
 
   return (
-    <Sidebar side={side} collapsible="icon" variant="sidebar" className="border-s-0">
-      <SidebarHeader className="mt-[calc(0.5rem+1px)] h-14 justify-center border-b border-border p-0 px-2">
+    <Sidebar
+      side={side}
+      collapsible="icon"
+      variant="sidebar"
+      className="group-data-[side=left]:border-e-0! group-data-[side=right]:border-s-0!"
+    >
+      <SidebarHeader className="mt-[calc(0.5rem+1px)] h-14 justify-center border-b border-border/60 p-0 px-2">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" className="h-10 justify-center" asChild>
@@ -85,7 +90,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="border-t border-border">
+      <SidebarFooter className="border-t border-border/60">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" tooltip={tUser("tooltip")}>
