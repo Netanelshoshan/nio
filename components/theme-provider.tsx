@@ -5,6 +5,7 @@ import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 
 function ThemeProvider({
   children,
+  scriptProps,
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
   return (
@@ -14,6 +15,14 @@ function ThemeProvider({
       enableSystem
       disableTransitionOnChange
       {...props}
+      // Keep a real blocking script during SSR (prevents theme flash). On the
+      // client, mark it as non-JS so React 19 does not warn about <script>.
+      scriptProps={{
+        ...(typeof window === "undefined"
+          ? undefined
+          : { type: "application/json" }),
+        ...scriptProps,
+      }}
     >
       <ThemeHotkey />
       {children}
