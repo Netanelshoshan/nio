@@ -18,6 +18,14 @@
 # production
 /build
 
+# generated shadcn registry (optional static output)
+/public/r
+
+# firebase
+.firebase
+firebase-debug.log
+firebase-debug.*.log
+
 # misc
 .DS_Store
 *.pem

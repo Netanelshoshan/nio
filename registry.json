@@ -1,0 +1,118 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "netanelio",
+  "homepage": "https://registry.netanel.io",
+  "items": [
+    {
+      "name": "i18n",
+      "type": "registry:item",
+      "title": "Hebrew/English i18n",
+      "description": "App Router locale routing with Accept-Language negotiation, dictionaries, RTL direction, and a language switcher.",
+      "dependencies": [
+        "@formatjs/intl-localematcher",
+        "negotiator"
+      ],
+      "devDependencies": ["@types/negotiator"],
+      "registryDependencies": ["button", "dropdown-menu"],
+      "files": [
+        {
+          "path": "lib/i18n/config.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "hooks/use-translations.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "components/dictionary-provider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/locale-link.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/locale-switcher.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "dictionaries/en.json",
+          "type": "registry:file",
+          "target": "~/dictionaries/en.json"
+        },
+        {
+          "path": "dictionaries/he.json",
+          "type": "registry:file",
+          "target": "~/dictionaries/he.json"
+        },
+        {
+          "path": "app/[lang]/dictionaries.ts",
+          "type": "registry:file",
+          "target": "~/app/[lang]/dictionaries.ts"
+        },
+        {
+          "path": "proxy.ts",
+          "type": "registry:file",
+          "target": "~/proxy.ts"
+        }
+      ],
+      "docs": "Wrap the app in DictionaryProvider, load dictionaries in app/[lang]/layout.tsx, and keep proxy.ts at the project root so unprefixed paths redirect to /he or /en. LocaleSwitcher requires button and dropdown-menu."
+    },
+    {
+      "name": "theme",
+      "type": "registry:component",
+      "title": "Theme",
+      "description": "next-themes provider with a D-key hotkey and a light/dark/system toggle.",
+      "dependencies": ["next-themes"],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "@netanelio/i18n"
+      ],
+      "files": [
+        {
+          "path": "components/theme-provider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Wrap the app in ThemeProvider (attribute=\"class\", defaultTheme=\"system\"). ThemeToggle expects DictionaryProvider from the i18n item because it reads Theme.* strings."
+    },
+    {
+      "name": "app-shell",
+      "type": "registry:block",
+      "title": "App shell",
+      "description": "Collapsible sidebar, header with breadcrumbs, locale/theme controls, and a page wrapper. RTL-aware: the sidebar mirrors to the right in Hebrew.",
+      "registryDependencies": [
+        "avatar",
+        "breadcrumb",
+        "separator",
+        "sidebar",
+        "@netanelio/i18n",
+        "@netanelio/theme"
+      ],
+      "files": [
+        {
+          "path": "components/app-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/app-header.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/app-page.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/brand-mark.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Compose AppSidebar and AppHeader inside SidebarProvider as in app/[lang]/layout.tsx. Add routes to navItems in app-sidebar.tsx and matching labels in the dictionaries."
+    }
+  ]
+}

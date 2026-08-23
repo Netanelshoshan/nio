@@ -31,6 +31,9 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      - name: Validate registry
+        run: npm run registry:validate
+
       - name: Build
         run: npm run build
 

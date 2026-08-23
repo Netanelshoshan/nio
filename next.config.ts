@@ -21,6 +21,12 @@ const securityHeaders = [
   },
 ]
 
+const registryCorsHeaders = [
+  { key: "Access-Control-Allow-Origin", value: "*" },
+  { key: "Access-Control-Allow-Methods", value: "GET, OPTIONS" },
+  { key: "Access-Control-Allow-Headers", value: "Content-Type, Authorization" },
+]
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
@@ -37,11 +43,26 @@ const nextConfig: NextConfig = {
     turbopackSourceMaps: isDev,
     turbopackInputSourceMaps: isDev,
   },
+  outputFileTracingIncludes: {
+    "/r/**": [
+      "./registry.json",
+      "./components/**/*",
+      "./hooks/**/*",
+      "./lib/**/*",
+      "./dictionaries/**/*",
+      "./proxy.ts",
+      "./app/**/*",
+    ],
+  },
   async headers() {
     return [
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/r/:path*",
+        headers: [...securityHeaders, ...registryCorsHeaders],
       },
     ]
   },
