@@ -1,0 +1,271 @@
+{
+  "Metadata": {
+    "title": "האפליקציה שלי",
+    "titleTemplate": "%s — האפליקציה שלי",
+    "description": "תבנית Next.js עם shadcn/ui ותמיכה מלאה ב-RTL",
+    "siteName": "האפליקציה שלי"
+  },
+  "Brand": {
+    "name": "האפליקציה שלי"
+  },
+  "Nav": {
+    "home": "בית",
+    "components": "רכיבים",
+    "menu": "תפריט"
+  },
+  "User": {
+    "guest": "אורח",
+    "tooltip": "משתמש"
+  },
+  "Theme": {
+    "label": "ערכת נושא",
+    "light": "בהיר",
+    "dark": "כהה",
+    "system": "מערכת"
+  },
+  "Locale": {
+    "label": "שפה",
+    "he": "עברית",
+    "en": "English"
+  },
+  "Pagination": {
+    "label": "דפדוף",
+    "previous": "הקודם",
+    "next": "הבא",
+    "previousAria": "לעמוד הקודם",
+    "nextAria": "לעמוד הבא",
+    "morePages": "עמודים נוספים"
+  },
+  "Home": {
+    "title": "בית",
+    "badge": "תבנית",
+    "description": "זוהי תבנית Next.js גנרית עם shadcn/ui, תמיכה מלאה ב-RTL/עברית, ומצב כהה/בהיר.",
+    "metrics": {
+      "activeUsers": "משתמשים פעילים",
+      "ordersThisMonth": "הזמנות החודש",
+      "avgLoadTime": "זמן טעינה ממוצע",
+      "satisfaction": "שביעות רצון"
+    },
+    "componentsCard": {
+      "title": "רכיבים",
+      "description": "דוגמאות לרכיבי shadcn/ui הזמינים בתבנית"
+    },
+    "addPageCard": {
+      "title": "הוסיפו דף",
+      "description": "צרו קובץ חדש תחת app/ כדי להוסיף מסך"
+    },
+    "apiCard": {
+      "title": "חברו API",
+      "description": "הוסיפו לוגיקת רשת משלכם לפי הצורך"
+    }
+  },
+  "Components": {
+    "page": {
+      "title": "רכיבים",
+      "description": "גלריה של כל רכיבי ה-shadcn/ui הזמינים בתבנית, מקובצים לפי קטגוריה."
+    },
+    "buttons": {
+      "title": "כפתורים ותגיות",
+      "description": "וריאציות וגדלים של כפתורים, קבוצות כפתורים, תגיות ומתגים.",
+      "primary": "ראשי",
+      "secondary": "משני",
+      "outline": "מסגרת",
+      "ghost": "שקוף",
+      "destructive": "מחיקה",
+      "link": "קישור",
+      "copy": "העתקה",
+      "edit": "עריכה",
+      "delete": "מחיקה",
+      "badgesLabel": "תגיות",
+      "badgeDefault": "ברירת מחדל",
+      "badgeSecondary": "משני",
+      "badgeDestructive": "מחיקה",
+      "badgeOutline": "מסגרת",
+      "formattingLabel": "עיצוב טקסט",
+      "bold": "מודגש",
+      "italic": "נטוי",
+      "underline": "קו תחתון"
+    },
+    "forms": {
+      "title": "טפסים ושדות קלט",
+      "description": "הרכבת שדות, קלט, בחירה ובוררי תאריכים.",
+      "nameLabel": "שם מלא",
+      "namePlaceholder": "ישראל ישראלי",
+      "emailLabel": "אימייל",
+      "emailPlaceholder": "israel@example.com",
+      "emailDescription": "לעולם לא נשתף את כתובת האימייל שלך עם אף אחד.",
+      "bioLabel": "אודות",
+      "bioPlaceholder": "ספרו לנו קצת על עצמכם",
+      "bioDescription": "תיאור קצר שיוצג בפרופיל הציבורי שלכם.",
+      "notificationsLabel": "התראות באימייל",
+      "notificationsDescription": "קבלו עדכונים על פעילות החשבון שלכם.",
+      "planLegend": "תוכנית",
+      "planFree": "חינמית — לפרויקטים אישיים",
+      "planPro": "פרו — לצוותים קטנים",
+      "planEnterprise": "ארגונית — לארגונים גדולים",
+      "termsLabel": "אני מסכימ/ה לתנאי השימוש",
+      "volumeLabel": "עוצמת קול",
+      "otpLabel": "קוד אימות",
+      "otpDescription": "הזינו את קוד ה-6 הספרות שנשלח למכשיר שלכם.",
+      "dateLabel": "תאריך לידה",
+      "datePlaceholder": "בחרו תאריך",
+      "comboboxLabel": "פריימוורק",
+      "comboboxPlaceholder": "בחרו פריימוורק…",
+      "comboboxEmpty": "לא נמצא פריימוורק.",
+      "countryLabel": "מדינה",
+      "countries": {
+        "il": "ישראל",
+        "us": "ארצות הברית",
+        "de": "גרמניה",
+        "jp": "יפן"
+      },
+      "frameworks": {
+        "next": "Next.js",
+        "remix": "Remix",
+        "astro": "Astro",
+        "gatsby": "Gatsby"
+      }
+    },
+    "overlays": {
+      "title": "שכבות עליונות",
+      "description": "דיאלוגים, גיליונות, מגירות, פופאובר, תפריטים ופלטת פקודות.",
+      "dialogTrigger": "עריכת פרופיל",
+      "dialogTitle": "עריכת פרופיל",
+      "dialogDescription": "בצעו שינויים בפרופיל שלכם כאן. לחצו על שמירה בסיום.",
+      "save": "שמירת שינויים",
+      "cancel": "ביטול",
+      "alertDialogTrigger": "מחיקת חשבון",
+      "alertDialogTitle": "האם אתם בטוחים לחלוטין?",
+      "alertDialogDescription": "לא ניתן לבטל פעולה זו. פעולה זו תמחק לצמיתות את החשבון שלכם ותסיר את הנתונים שלכם מהשרתים שלנו.",
+      "continue": "המשך",
+      "sheetTrigger": "פתיחת גיליון",
+      "sheetTitle": "כותרת הגיליון",
+      "sheetDescription": "פאנל שנפתח מקצה המסך.",
+      "drawerTrigger": "פתיחת מגירה",
+      "drawerTitle": "כותרת המגירה",
+      "drawerDescription": "פאנל שנפתח מלמטה, מתאים למסכים ניידים.",
+      "popoverTrigger": "פתיחת פופאובר",
+      "popoverTitle": "מידות",
+      "popoverDescription": "הגדירו את המידות עבור השכבה.",
+      "hoverCardDescription": "כרטיס שמופיע כאשר עוברים עם העכבר מעל אלמנט הטריגר.",
+      "tooltipTrigger": "רחפו כאן",
+      "tooltipContent": "טיפ שימושי",
+      "contextMenuTrigger": "לחצו כאן עם הכפתור הימני",
+      "back": "אחורה",
+      "forward": "קדימה",
+      "reload": "רענון",
+      "dropdownMenuTrigger": "פתיחת תפריט",
+      "profile": "פרופיל",
+      "billing": "חיוב",
+      "logout": "התנתקות",
+      "menubarFile": "קובץ",
+      "menubarEdit": "עריכה",
+      "menubarView": "תצוגה",
+      "newTab": "כרטיסייה חדשה",
+      "print": "הדפסה",
+      "undo": "בטל",
+      "redo": "בצע שוב",
+      "commandTrigger": "פתיחת פלטת פקודות",
+      "commandPlaceholder": "הקלידו פקודה או חיפוש…",
+      "commandEmpty": "לא נמצאו תוצאות.",
+      "commandSuggestions": "הצעות",
+      "commandSettings": "הגדרות",
+      "calendar": "יומן",
+      "search": "חיפוש",
+      "settings": "הגדרות"
+    },
+    "navigation": {
+      "title": "ניווט",
+      "description": "תפריטים, פירורי לחם, דפדוף ולשוניות.",
+      "docs": "תיעוד",
+      "components": "רכיבים",
+      "pricing": "תמחור",
+      "breadcrumbHome": "בית",
+      "breadcrumbLibrary": "ספרייה",
+      "breadcrumbData": "נתונים",
+      "tabsAccount": "חשבון",
+      "tabsPassword": "סיסמה",
+      "tabsAccountDescription": "עדכנו כאן את פרטי החשבון שלכם.",
+      "tabsPasswordDescription": "שנו כאן את הסיסמה שלכם."
+    },
+    "dataDisplay": {
+      "title": "תצוגת נתונים",
+      "description": "טבלאות, כרטיסים, תרשימים ואוספים.",
+      "tableCaption": "רשימת חשבוניות אחרונות.",
+      "invoice": "חשבונית",
+      "status": "סטטוס",
+      "method": "אמצעי תשלום",
+      "amount": "סכום",
+      "statusPaid": "שולם",
+      "statusPending": "ממתין",
+      "statusUnpaid": "לא שולם",
+      "chartTitle": "מבקרים",
+      "chartDescription": "שולחן עבודה מול נייד — 6 החודשים האחרונים",
+      "desktop": "שולחן עבודה",
+      "mobile": "נייד",
+      "accordionAccessible": {
+        "question": "האם זה נגיש?",
+        "answer": "כן. הרכיב עומד בתקן העיצוב WAI-ARIA."
+      },
+      "accordionStyled": {
+        "question": "האם יש לזה עיצוב?",
+        "answer": "כן. מגיע עם עיצוב ברירת מחדל שתואם לשאר ערכת הנושא שלכם."
+      },
+      "accordionAnimated": {
+        "question": "האם זה מונפש?",
+        "answer": "כן. מונפש כברירת מחדל, אך ניתן לבטל זאת אם תרצו."
+      },
+      "collapsibleTrigger": "3 רכיבים הותקנו בסשן הזה",
+      "collapsibleFirst": "combobox.tsx",
+      "collapsibleItem1": "attachment.tsx",
+      "collapsibleItem2": "message-scroller.tsx",
+      "carouselSlide": "שקופית",
+      "recentActivityTitle": "פעילות אחרונה",
+      "activityDeploy": {
+        "title": "פרסום לסביבת הייצור",
+        "description": "ענף main — לפני 2 דקות"
+      },
+      "activityComment": {
+        "title": "תגובה חדשה ב-PR #42",
+        "description": "מאת דנה כהן — לפני שעה"
+      },
+      "activityIssue": {
+        "title": "סוגיה נסגרה",
+        "description": "#128 — לפני 3 שעות"
+      },
+      "emptyTitle": "לא נמצאו תוצאות",
+      "emptyDescription": "נסו לשנות את החיפוש או המסננים כדי למצוא את מה שאתם מחפשים.",
+      "emptyAction": "ניקוי מסננים",
+      "kbdHint": "לחצו",
+      "kbdHintSuffix": "כדי לפתוח את פלטת הפקודות"
+    },
+    "feedback": {
+      "title": "משוב",
+      "description": "התראות, הודעות טוסט, התקדמות ומצבי טעינה.",
+      "alertTitle": "שימו לב!",
+      "alertDescription": "ניתן להוסיף רכיבים חדשים באמצעות ה-CLI של shadcn.",
+      "toastTrigger": "הצגת הודעת טוסט",
+      "toastMessage": "השינויים שלכם נשמרו בהצלחה.",
+      "progressLabel": "מעלה…",
+      "spinnerLabel": "טוען"
+    },
+    "chat": {
+      "title": "רכיבי צ'אט",
+      "description": "אבני בניין להודעות, בועות, קבצים מצורפים, סמנים וגלילה עבור ממשקי שיחה.",
+      "today": "היום",
+      "userMessage": "תוכלו לשתף את הדוח הרבעוני כשתתפנו?",
+      "assistantMessage": "בטח — מצורף למטה.",
+      "attachmentName": "דוח-רבעוני.pdf",
+      "attachmentSize": "2.4MB",
+      "assistantName": "עוזר",
+      "userName": "אתם"
+    },
+    "layout": {
+      "title": "פריסה",
+      "description": "מפרידים, אזורי גלילה, חלוניות ניתנות לשינוי גודל, ויחסי תצוגה.",
+      "tagsLabel": "תגים",
+      "resizableSidebar": "סרגל צד",
+      "resizableContent": "תוכן"
+    }
+  }
+}

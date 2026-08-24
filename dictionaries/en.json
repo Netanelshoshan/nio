@@ -1,0 +1,271 @@
+{
+  "Metadata": {
+    "title": "My App",
+    "titleTemplate": "%s — My App",
+    "description": "A Next.js starter with shadcn/ui and full RTL support",
+    "siteName": "My App"
+  },
+  "Brand": {
+    "name": "My App"
+  },
+  "Nav": {
+    "home": "Home",
+    "components": "Components",
+    "menu": "Menu"
+  },
+  "User": {
+    "guest": "Guest",
+    "tooltip": "User"
+  },
+  "Theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Locale": {
+    "label": "Language",
+    "he": "עברית",
+    "en": "English"
+  },
+  "Pagination": {
+    "label": "Pagination",
+    "previous": "Previous",
+    "next": "Next",
+    "previousAria": "Go to previous page",
+    "nextAria": "Go to next page",
+    "morePages": "More pages"
+  },
+  "Home": {
+    "title": "Home",
+    "badge": "Template",
+    "description": "A generic Next.js template with shadcn/ui, full RTL/Hebrew support, and light/dark mode.",
+    "metrics": {
+      "activeUsers": "Active users",
+      "ordersThisMonth": "Orders this month",
+      "avgLoadTime": "Avg. load time",
+      "satisfaction": "Satisfaction"
+    },
+    "componentsCard": {
+      "title": "Components",
+      "description": "Examples of the shadcn/ui components available in this template"
+    },
+    "addPageCard": {
+      "title": "Add a page",
+      "description": "Create a new file under app/ to add a screen"
+    },
+    "apiCard": {
+      "title": "Connect an API",
+      "description": "Add your own networking logic as needed"
+    }
+  },
+  "Components": {
+    "page": {
+      "title": "Components",
+      "description": "A gallery of every shadcn/ui component available in this template, grouped by category."
+    },
+    "buttons": {
+      "title": "Buttons & badges",
+      "description": "Button variants and sizes, button groups, badges, and toggles.",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "outline": "Outline",
+      "ghost": "Ghost",
+      "destructive": "Destructive",
+      "link": "Link",
+      "copy": "Copy",
+      "edit": "Edit",
+      "delete": "Delete",
+      "badgesLabel": "Badges",
+      "badgeDefault": "Default",
+      "badgeSecondary": "Secondary",
+      "badgeDestructive": "Destructive",
+      "badgeOutline": "Outline",
+      "formattingLabel": "Text formatting",
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Underline"
+    },
+    "forms": {
+      "title": "Forms & inputs",
+      "description": "Field composition, inputs, selects, and date pickers.",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Jane Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "jane@example.com",
+      "emailDescription": "We'll never share your email with anyone else.",
+      "bioLabel": "Bio",
+      "bioPlaceholder": "Tell us a little about yourself",
+      "bioDescription": "A short bio shown on your public profile.",
+      "notificationsLabel": "Email notifications",
+      "notificationsDescription": "Receive updates about your account activity.",
+      "planLegend": "Plan",
+      "planFree": "Free — for personal projects",
+      "planPro": "Pro — for small teams",
+      "planEnterprise": "Enterprise — for large organizations",
+      "termsLabel": "I agree to the terms and conditions",
+      "volumeLabel": "Volume",
+      "otpLabel": "Verification code",
+      "otpDescription": "Enter the 6-digit code sent to your device.",
+      "dateLabel": "Date of birth",
+      "datePlaceholder": "Pick a date",
+      "comboboxLabel": "Framework",
+      "comboboxPlaceholder": "Select framework…",
+      "comboboxEmpty": "No framework found.",
+      "countryLabel": "Country",
+      "countries": {
+        "il": "Israel",
+        "us": "United States",
+        "de": "Germany",
+        "jp": "Japan"
+      },
+      "frameworks": {
+        "next": "Next.js",
+        "remix": "Remix",
+        "astro": "Astro",
+        "gatsby": "Gatsby"
+      }
+    },
+    "overlays": {
+      "title": "Overlays",
+      "description": "Dialogs, sheets, drawers, popovers, menus, and the command palette.",
+      "dialogTrigger": "Edit profile",
+      "dialogTitle": "Edit profile",
+      "dialogDescription": "Make changes to your profile here. Click save when you're done.",
+      "save": "Save changes",
+      "cancel": "Cancel",
+      "alertDialogTrigger": "Delete account",
+      "alertDialogTitle": "Are you absolutely sure?",
+      "alertDialogDescription": "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+      "continue": "Continue",
+      "sheetTrigger": "Open sheet",
+      "sheetTitle": "Sheet title",
+      "sheetDescription": "A panel that slides in from the edge of the screen.",
+      "drawerTrigger": "Open drawer",
+      "drawerTitle": "Drawer title",
+      "drawerDescription": "A panel that slides up from the bottom, ideal for mobile.",
+      "popoverTrigger": "Open popover",
+      "popoverTitle": "Dimensions",
+      "popoverDescription": "Set the dimensions for the layer.",
+      "hoverCardDescription": "A card that appears when you hover over a trigger element.",
+      "tooltipTrigger": "Hover me",
+      "tooltipContent": "A helpful tip",
+      "contextMenuTrigger": "Right-click here",
+      "back": "Back",
+      "forward": "Forward",
+      "reload": "Reload",
+      "dropdownMenuTrigger": "Open menu",
+      "profile": "Profile",
+      "billing": "Billing",
+      "logout": "Log out",
+      "menubarFile": "File",
+      "menubarEdit": "Edit",
+      "menubarView": "View",
+      "newTab": "New tab",
+      "print": "Print",
+      "undo": "Undo",
+      "redo": "Redo",
+      "commandTrigger": "Open command palette",
+      "commandPlaceholder": "Type a command or search…",
+      "commandEmpty": "No results found.",
+      "commandSuggestions": "Suggestions",
+      "commandSettings": "Settings",
+      "calendar": "Calendar",
+      "search": "Search",
+      "settings": "Settings"
+    },
+    "navigation": {
+      "title": "Navigation",
+      "description": "Menus, breadcrumbs, pagination, and tabs.",
+      "docs": "Docs",
+      "components": "Components",
+      "pricing": "Pricing",
+      "breadcrumbHome": "Home",
+      "breadcrumbLibrary": "Library",
+      "breadcrumbData": "Data",
+      "tabsAccount": "Account",
+      "tabsPassword": "Password",
+      "tabsAccountDescription": "Update your account details here.",
+      "tabsPasswordDescription": "Change your password here."
+    },
+    "dataDisplay": {
+      "title": "Data display",
+      "description": "Tables, cards, charts, and collections.",
+      "tableCaption": "A list of recent invoices.",
+      "invoice": "Invoice",
+      "status": "Status",
+      "method": "Method",
+      "amount": "Amount",
+      "statusPaid": "Paid",
+      "statusPending": "Pending",
+      "statusUnpaid": "Unpaid",
+      "chartTitle": "Visitors",
+      "chartDescription": "Desktop vs. mobile — last 6 months",
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "accordionAccessible": {
+        "question": "Is it accessible?",
+        "answer": "Yes. It adheres to the WAI-ARIA design pattern."
+      },
+      "accordionStyled": {
+        "question": "Is it styled?",
+        "answer": "Yes. It comes with default styles that match the rest of your theme."
+      },
+      "accordionAnimated": {
+        "question": "Is it animated?",
+        "answer": "Yes. It's animated by default, but you can disable it if you prefer."
+      },
+      "collapsibleTrigger": "3 components installed this session",
+      "collapsibleFirst": "combobox.tsx",
+      "collapsibleItem1": "attachment.tsx",
+      "collapsibleItem2": "message-scroller.tsx",
+      "carouselSlide": "Slide",
+      "recentActivityTitle": "Recent activity",
+      "activityDeploy": {
+        "title": "Deployed to production",
+        "description": "main branch — 2 minutes ago"
+      },
+      "activityComment": {
+        "title": "New comment on PR #42",
+        "description": "from Dana Cohen — 1 hour ago"
+      },
+      "activityIssue": {
+        "title": "Issue closed",
+        "description": "#128 — 3 hours ago"
+      },
+      "emptyTitle": "No results found",
+      "emptyDescription": "Try adjusting your search or filters to find what you're looking for.",
+      "emptyAction": "Clear filters",
+      "kbdHint": "Press",
+      "kbdHintSuffix": "to open the command palette"
+    },
+    "feedback": {
+      "title": "Feedback",
+      "description": "Alerts, toasts, progress, and loading states.",
+      "alertTitle": "Heads up!",
+      "alertDescription": "You can add new components using the shadcn CLI.",
+      "toastTrigger": "Show toast",
+      "toastMessage": "Your changes have been saved.",
+      "progressLabel": "Uploading…",
+      "spinnerLabel": "Loading"
+    },
+    "chat": {
+      "title": "Chat primitives",
+      "description": "Message, bubble, attachment, marker, and scroller building blocks for conversation UI.",
+      "today": "Today",
+      "userMessage": "Can you share the quarterly report when you get a chance?",
+      "assistantMessage": "Of course — attached below.",
+      "attachmentName": "quarterly-report.pdf",
+      "attachmentSize": "2.4 MB",
+      "assistantName": "Assistant",
+      "userName": "You"
+    },
+    "layout": {
+      "title": "Layout",
+      "description": "Separators, scroll areas, resizable panes, and aspect ratios.",
+      "tagsLabel": "Tags",
+      "resizableSidebar": "Sidebar",
+      "resizableContent": "Content"
+    }
+  }
+}

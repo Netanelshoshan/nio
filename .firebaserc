@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "netanelio"
+  },
+  "targets": {
+    "netanelio": {
+      "hosting": {
+        "registry": [
+          "registry-netanelio"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
